@@ -1,18 +1,27 @@
 # cpqt.bgqg
 Portfolio: Phân Định Biên Giới Vùng Biên
-<!DOCTYPE html>
+# Clone the repository
+git clone https://github.com/YOUR-USERNAME/cpqt.bgqg.git
+cd cpqt.bgqg
+
+# Create index.html and paste the code
+echo "[<!DOCTYPE html>
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio: Phân Định Biên Giới Quốc Gia</title>
+    <title>Portfolio: Khung Pháp Lý Biên Giới Quốc Gia</title>
     <style>
         :root {
-            --primary-blue: #0A192F;
-            --sea-blue: #172A45;
-            --cyan: #64FFDA;
-            --text-light: #CCD6F6;
-            --text-gray: #8892B0;
+            --bg-pure: #ffffff;
+            --bg-gradient: linear-gradient(135deg, #f5f9ff 0%, #e6f0fa 100%);
+            --blue-dark: #002B66;
+            --blue-medium: #0055CC;
+            --blue-light: #3388FF;
+            --blue-tint: #f0f6ff;
+            --text-main: #1E293B;
+            --text-muted: #64748B;
+            --accent-red: #FF4D4D;
         }
 
         * {
@@ -24,51 +33,56 @@ Portfolio: Phân Định Biên Giới Vùng Biên
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--primary-blue);
-            color: var(--text-light);
+            background-color: var(--bg-pure);
+            color: var(--text-main);
             line-height: 1.6;
-            overflow-x: hidden;
         }
 
-        /* Navigation */
+        /* Navigation Bar */
         nav {
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(10, 25, 47, 0.85);
-            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(15px);
             display: flex;
             justify-content: space-between;
-            padding: 20px 50px;
+            align-items: center;
+            padding: 18px 6%;
             z-index: 100;
-            border-bottom: 1px solid rgba(100, 255, 218, 0.1);
+            box-shadow: 0 4px 20px rgba(0, 43, 102, 0.05);
+            border-bottom: 1px solid rgba(0, 85, 204, 0.1);
         }
 
         nav .logo {
-            font-weight: bold;
-            color: var(--cyan);
-            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--blue-dark);
+            font-size: 1.4rem;
+            letter-spacing: 0.5px;
         }
 
         nav ul {
             display: flex;
             list-style: none;
-            gap: 20px;
+            gap: 30px;
         }
 
         nav a {
-            color: var(--text-light);
+            color: var(--text-muted);
             text-decoration: none;
-            transition: 0.3s;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
         }
 
         nav a:hover {
-            color: var(--cyan);
+            color: var(--blue-medium);
+            transform: translateY(-2px);
         }
 
-        /* Hero Section */
+        /* Hero / Header Section */
         header {
-            height: 100vh;
+            height: 90vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -76,381 +90,507 @@ Portfolio: Phân Định Biên Giới Vùng Biên
             text-align: center;
             padding: 0 20px;
             position: relative;
-            background: radial-gradient(circle, rgba(23,42,69,1) 0%, rgba(10,25,47,1) 100%);
+            background: linear-gradient(180deg, #ffffff 0%, #eef5fc 70%, #dbeafe 100%);
+            overflow: hidden;
         }
 
         header h1 {
-            font-size: 3rem;
-            margin-bottom: 10px;
-            color: #fff;
+            font-size: 4rem;
+            color: var(--blue-dark);
+            margin-bottom: 25px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            z-index: 2;
         }
 
         header p {
-            color: var(--cyan);
-            font-size: 1.2rem;
-            max-width: 600px;
+            color: var(--blue-medium);
+            font-size: 1.4rem;
+            max-width: 800px;
+            font-weight: 500;
+            z-index: 2;
         }
 
-        /* Giả lập sóng biển động ở Header */
-        .ocean-wave {
+        /* Trang trí đám mây trôi ở Header */
+        .cloud-bg {
             position: absolute;
-            bottom: 0;
-            width: 100%;
-            height: 100px;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23172A45" fill-opacity="1" d="M0,192L48,197.3C96,203,192,213,288,192C384,171,480,117,576,112C672,107,768,149,864,165.3C960,181,1056,171,1152,149.3C1248,128,1344,96,1392,80L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
-            background-size: 1440px 100px;
-            animation: waveAnimate 12s linear infinite;
+            background: rgba(255,255,255,0.7);
+            border-radius: 100px;
+            animation: floatCloud 25s infinite linear;
+            z-index: 1;
+        }
+        @keyframes floatCloud {
+            0% { transform: translateX(-200px); opacity: 0; }
+            10%, 90% { opacity: 0.8; }
+            100% { transform: translateX(1400px); opacity: 0; }
         }
 
-        @keyframes waveAnimate {
-            0% { background-position-x: 0px; }
-            100% { background-position-x: 1440px; }
-        }
-
-        /* Section chung */
+        /* Sections */
         section {
-            padding: 100px 10%;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
+            padding: 120px 8%;
+            background-color: var(--bg-pure);
+        }
+
+        section:nth-child(even) {
+            background: var(--bg-gradient);
         }
 
         h2 {
-            color: var(--cyan);
-            margin-bottom: 30px;
-            font-size: 2rem;
+            color: var(--blue-dark);
+            margin-bottom: 45px;
+            font-size: 2.4rem;
+            font-weight: 800;
             position: relative;
         }
 
-        /* Grid hiển thị nội dung & Hình minh họa động */
+        h2::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            width: 80px;
+            height: 5px;
+            background-color: var(--blue-medium);
+            border-radius: 10px;
+        }
+
         .container {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 50px;
+            gap: 70px;
             align-items: center;
         }
 
         .content-box {
-            background: var(--sea-blue);
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 10px 30px -15px rgba(2,12,27,0.7);
+            background: #ffffff;
+            padding: 45px;
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(0, 43, 102, 0.04);
+            border: 1px solid rgba(0, 85, 204, 0.08);
         }
 
-        ul.steps {
-            list-style: none;
-            margin-top: 15px;
+        .content-box p {
+            margin-bottom: 22px;
+            font-size: 1.1rem;
+            color: var(--text-main);
         }
 
         ul.steps li {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             position: relative;
-            padding-left: 25px;
+            padding-left: 32px;
+            font-size: 1.1rem;
+            list-style: none;
         }
 
         ul.steps li::before {
-            content: "⚡";
+            content: "✦";
             position: absolute;
             left: 0;
-            color: var(--cyan);
+            color: var(--blue-light);
+            font-weight: bold;
+            font-size: 1.2rem;
         }
 
-        /* --- KHU VỰC ĐỒ HỌA CHUYỂN ĐỘNG (ANIMATION CANVAS) --- */
+        .example-box {
+            background-color: var(--blue-tint);
+            border-left: 5px solid var(--blue-medium);
+            padding: 22px;
+            border-radius: 4px 12px 12px 4px;
+            margin-top: 30px;
+            font-size: 1.05rem;
+            color: var(--blue-dark);
+        }
+
+        /* --- PHẦN MINH HỌA SÁNG TẠO & ĐỘNG (CREATIVE VISUAL DISPLAYS) --- */
         .visual-display {
-            background: #020c1b;
-            height: 350px;
-            border-radius: 8px;
+            background: #ffffff;
+            height: 480px;
+            border-radius: 20px;
             position: relative;
             overflow: hidden;
-            border: 1px solid rgba(100, 255, 218, 0.2);
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            border: 1px solid rgba(0, 85, 204, 0.15);
+            box-shadow: 0 25px 50px rgba(0, 43, 102, 0.08);
         }
 
-        /* 1. Minh họa Biên giới đất liền (Cắm mốc) */
-        .land-line {
-            width: 80%;
-            height: 4px;
-            background: #ff4a4a;
-            position: relative;
-        }
-        .flag-pole {
+        /* Nhãn chú thích kiểu hiện đại */
+        .annotation {
             position: absolute;
-            bottom: 0;
-            left: 50%;
-            width: 4px;
-            height: 60px;
-            background: #fff;
-            transform: scaleY(0);
-            transform-origin: bottom;
-            animation: deployFlag 3s infinite alternate;
-        }
-        @keyframes deployFlag {
-            0%, 30% { transform: scaleY(0); }
-            70%, 100% { transform: scaleY(1); }
+            background: rgba(255, 255, 255, 0.95);
+            color: var(--blue-dark);
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            z-index: 30;
+            border: 1px solid var(--blue-light);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
 
-        /* 2. Minh họa biển chồng lấn & Đường trung tuyến */
-        .sea-overlap {
+        /* 1. Đất Liền: Núi Non và Cắm Mốc Sinh Động */
+        .scenery-land {
             width: 100%;
             height: 100%;
-            display: flex;
+            background: linear-gradient(to bottom, #e0f2fe 0%, #bae6fd 100%);
             position: relative;
         }
-        .country-a, .country-b {
-            width: 60%;
-            height: 100%;
+
+        .mountain-back {
             position: absolute;
-            opacity: 0.6;
-            transition: 2s;
+            bottom: 0; width: 100%; height: 220px;
+            background: #7dd3fc;
+            clip-path: polygon(0% 100%, 15% 40%, 40% 75%, 65% 25%, 90% 70%, 100% 45%, 100% 100%);
+            opacity: 0.7;
         }
-        .country-a {
-            background: linear-gradient(90deg, #1e3c72, #2a5298);
-            left: 0;
-            animation: shiftLeft 4s infinite alternate ease-in-out;
-        }
-        .country-b {
-            background: linear-gradient(270deg, #11998e, #38ef7d);
-            right: 0;
-            animation: shiftRight 4s infinite alternate ease-in-out;
-        }
-        .median-line {
+
+        .mountain-front {
             position: absolute;
-            left: 50%;
-            top: 0;
-            width: 2px;
-            height: 100%;
-            background: var(--cyan);
-            box-shadow: 0 0 10px var(--cyan);
+            bottom: 0; width: 100%; height: 160px;
+            background: #38bdf8;
+            clip-path: polygon(0% 100%, 25% 35%, 55% 65%, 80% 20%, 100% 60%, 100% 100%);
+            z-index: 5;
+        }
+
+        .river-flow {
+            position: absolute;
+            bottom: 0; left: 45%; width: 90px; height: 110px;
+            background: linear-gradient(to top, #0284c7, #38bdf8);
+            clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
+            z-index: 6;
+        }
+
+        .dynamic-marker {
+            position: absolute;
+            bottom: 60px; left: 50%;
+            width: 16px; height: 55px;
+            background: var(--accent-red);
+            border: 3px solid #ffffff;
+            border-radius: 2px;
             z-index: 10;
-            animation: blink 1s infinite;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+            animation: landDrop 3s infinite alternate ease-in-out;
         }
-        @keyframes shiftLeft { 0% { width: 50%; } 100% { width: 65%; } }
-        @keyframes shiftRight { 0% { width: 50%; } 100% { width: 65%; } }
-        @keyframes blink { 0%, 100% { opacity: 0.3; } 50% { opacity: 1; } }
 
-        /* 3. Minh họa mặt phẳng thẳng đứng (Vùng trời / Lòng đất) */
-        .vertical-axis {
-            width: 100%;
-            height: 100%;
+        @keyframes landDrop {
+            0% { transform: translateY(-80px) scale(0.9); opacity: 0; }
+            60%, 100% { transform: translateY(0) scale(1); opacity: 1; }
+        }
+
+        /* 2. Trên Biển: Sóng Biển Trùng Điệp và Tàu Thuyền Hải Quân */
+        .scenery-sea {
+            width: 100%; height: 100%;
+            background: linear-gradient(to bottom, #f0f9ff 0%, #e0f2fe 40%, #0284c7 100%);
             position: relative;
-            background: linear-gradient(180deg, #020c1b 0%, #172a45 100%);
         }
-        .ground-base {
+
+        .ocean-waves-container {
             position: absolute;
-            bottom: 30%;
-            width: 100%;
-            height: 10px;
-            background: #8b5a2b;
+            bottom: 0; width: 100%; height: 200px;
+            z-index: 5;
         }
-        .vertical-laser {
+
+        /* Con thuyền tuần tra hải quân mượt mà */
+        .navy-ship {
             position: absolute;
-            left: 50%;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: yellow;
-            box-shadow: 0 0 15px yellow;
+            bottom: 120px; left: 15%;
+            width: 70px; height: 25px;
+            background: #cbd5e1;
+            clip-path: polygon(0% 40%, 85% 40%, 100% 0%, 85% 100%, 0% 100%);
+            z-index: 8;
+            animation: shipSway 4s infinite ease-in-out alternate;
         }
-        .scanner {
-            position: absolute;
-            width: 100%;
-            height: 2px;
-            background: rgba(100, 255, 218, 0.5);
-            animation: scan 4s infinite linear;
+        .navy-ship::before {
+            content: ''; position: absolute; top: -15px; left: 20px;
+            width: 25px; height: 15px; background: #94a3b8;
         }
-        @keyframes scan {
+
+        @keyframes shipSway {
+            0% { transform: translateY(0) rotate(0deg); }
+            100% { transform: translateY(-8px) rotate(4deg); }
+        }
+
+        .eez-overlay-a {
+            position: absolute; left: 0; top: 0; bottom: 0; width: 50%;
+            background: linear-gradient(90deg, rgba(51,136,255,0.25), rgba(51,136,255,0.02));
+            z-index: 2;
+        }
+        .eez-overlay-b {
+            position: absolute; right: 0; top: 0; bottom: 0; width: 50%;
+            background: linear-gradient(270deg, rgba(2,132,199,0.25), rgba(2,132,199,0.02));
+            z-index: 2;
+        }
+
+        .center-law-line {
+            position: absolute; left: 50%; top: 0; bottom: 0; width: 4px;
+            background: var(--accent-red);
+            box-shadow: 0 0 15px var(--accent-red);
+            z-index: 10;
+        }
+
+        /* 3. Không Gian 3D: Vùng Trời Sinh Động Có Máy Bay Cất Cánh */
+        .scenery-sky-space {
+            width: 100%; height: 100%;
+            display: flex; flex-direction: column;
+            position: relative;
+        }
+
+        .sky-visual {
+            height: 50%; background: linear-gradient(to bottom, #bae6fd 0%, #f0f9ff 100%);
+            position: relative;
+        }
+
+        /* Giả lập máy bay chiến đấu bảo vệ không phận */
+        .jet-plane {
+            position: absolute; top: 30px; left: 10%;
+            width: 45px; height: 15px;
+            background: #64748b;
+            clip-path: polygon(0% 50%, 40% 0%, 70% 50%, 100% 50%, 70% 100%, 40% 100%);
+            animation: jetFly 6s infinite linear;
+            z-index: 12;
+        }
+
+        @keyframes jetFly {
+            0% { transform: translate(-50px, 60px) scale(0.7); opacity: 0; }
+            15% { opacity: 1; }
+            85% { opacity: 1; }
+            100% { transform: translate(500px, -20px) scale(1.1); opacity: 0; }
+        }
+
+        .ground-divider {
+            height: 12px; background: #475569; position: relative; z-index: 20;
+        }
+
+        .sub-earth-visual {
+            height: 50%; background: linear-gradient(to bottom, #f1f5f9 0%, #cbd5e1 100%);
+            position: relative;
+        }
+
+        .vertical-laser-plane {
+            position: absolute; left: 50%; top: 0; bottom: 0; width: 3px;
+            background: var(--accent-red);
+            box-shadow: 0 0 12px rgba(255,77,77,0.9);
+            z-index: 15;
+        }
+
+        .radar-glow {
+            position: absolute; width: 100%; height: 4px;
+            background: rgba(51, 136, 255, 0.6);
+            box-shadow: 0 0 15px var(--blue-light);
+            animation: radarGrid 4s infinite linear;
+            z-index: 16;
+        }
+
+        @keyframes radarGrid {
             0% { top: 0%; }
             100% { top: 100%; }
         }
 
-        /* Bảng tóm tắt dạng Responsive */
+        /* Bảng tổng hợp dữ liệu */
         .table-wrapper {
             overflow-x: auto;
-            margin-top: 40px;
+            margin-top: 50px;
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 43, 102, 0.03);
+            border: 1px solid var(--blue-tint);
         }
+
         table {
             width: 100%;
             border-collapse: collapse;
-            background: var(--sea-blue);
-            border-radius: 8px;
         }
+
         th, td {
-            padding: 15px;
+            padding: 18px 24px;
             text-align: left;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+            border-bottom: 1px solid var(--blue-tint);
         }
+
         th {
-            background-color: rgba(100, 255, 218, 0.1);
-            color: var(--cyan);
+            background-color: var(--blue-tint);
+            color: var(--blue-dark);
+            font-weight: 700;
+        }
+
+        tr:hover {
+            background-color: rgba(51, 136, 255, 0.03);
         }
 
         footer {
             text-align: center;
-            padding: 40px;
-            color: var(--text-gray);
-            font-size: 0.9rem;
+            padding: 60px;
+            background: var(--blue-dark);
+            color: #ffffff;
         }
     </style>
 </head>
 <body>
 
-    <!-- Menu Điều Hướng -->
+    <div class="cloud-bg" style="top: 15%; width: 120px; height: 40px; animation-duration: 28s;"></div>
+    <div class="cloud-bg" style="top: 35%; width: 180px; height: 50px; animation-duration: 38s; animation-delay: -5s;"></div>
+
     <nav>
         <div class="logo">BIÊN GIỚI QUỐC GIA</div>
         <ul>
-            <li><a href="#co-so">Cơ Sở Chung</a></li>
-            <li><a href="#tren-bo">Biên Giới Trên Bộ</a></li>
-            <li><a href="#tren-bien">Biên Giới Trên Biển</a></li>
-            <li><a href="#khong-dat">Vùng Trời & Lòng Đất</a></li>
+            <li><a href="#co-so-phap-ly">Cơ Sở Pháp Lý</a></li>
+            <li><a href="#vùng-dat-lien">Biên Giới Trên Bộ</a></li>
+            <li><a href="#vung-bien-dao">Biên Giới Trên Biển</a></li>
+            <li><a href="#vung-troi-long-dat">Vùng Trời & Lòng Đất</a></li>
         </ul>
     </nav>
 
-    <!-- Khung mở đầu phong cách Điện Ảnh -->
     <header>
-        <h1>Phân Định Biên Giới Vùng Biên</h1>
-        <p>Hệ thống hóa kiến thức pháp lý và quy trình xác lập ranh giới chủ quyền quốc gia trực quan sinh động.</p>
-        <div class="ocean-wave"></div>
+        <h1>Phân Định Biên Giới Quốc Gia</h1>
+        <p>Hệ thống danh mục nghiên cứu số hóa kết hợp đồ họa chuyển động trực quan sinh động</p>
     </header>
 
-    <!-- I. Cơ sở chung -->
-    <section id="co-so">
+    <section id="co-so-phap-ly">
         <h2>I. Cơ Sở Pháp Lý Chung</h2>
         <div class="container">
             <div class="content-box">
-                <p>Biên giới quốc gia là ranh giới phân định lãnh thổ quốc gia này với quốc gia khác, gồm 4 bộ phận cấu thành bất khả xâm phạm.</p>
+                <p>Biên giới quốc gia cấu thành nên ranh giới phân định chủ quyền thiêng liêng độc lập của một đất nước với phần còn lại của thế giới.</p>
+                <p>Hệ thống pháp luật tối cao dựa trên nền tảng <strong>Hiến chương Liên Hợp Quốc</strong>, khẳng định tính toàn vẹn lãnh thổ và kêu gọi giải quyết mọi tranh chấp ranh giới bằng thương lượng hòa bình.</p>
                 <ul class="steps">
-                    <li>Biên giới trên bộ</li>
-                    <li>Biên giới trên biển</li>
-                    <li>Biên giới vùng trời</li>
-                    <li>Biên giới lòng đất</li>
+                    <li>Chủ quyền quốc gia là bất khả xâm phạm.</li>
+                    <li>Sự kết hợp đồng bộ của cả 4 bộ phận không gian độc lập.</li>
                 </ul>
-                <p style="margin-top:15px; font-style:italic; color:var(--text-gray)">* Dựa trên nguyên tắc hòa bình, tôn trọng chủ quyền và Hiến chương Liên Hợp Quốc.</p>
             </div>
-            <div class="visual-display">
-                <!-- Vòng tròn hiển thị 4 thành phần lãnh thổ -->
-                <div style="color:var(--cyan); text-align:center; font-weight:bold;">
-                    <div style="border: 2px dashed var(--cyan); padding: 30px; border-radius: 50%; animation: blink 2s infinite;">
-                        CHỦ QUYỀN TOÀN VẸN<br><span style="color:#fff; font-size:0.8rem;">Đất liền - Biển - Trời - Lòng đất</span>
+            <div class="visual-display" style="background: var(--blue-tint); display: flex; justify-content: center; align-items: center;">
+                <div style="text-align: center; background: #ffffff; padding: 40px; border-radius: 20px; box-shadow: 0 15px 30px rgba(0,0,0,0.03); border: 2px solid var(--blue-light);">
+                    <div style="font-size: 1.3rem; font-weight: 800; color: var(--blue-dark); margin-bottom: 20px;">4 KHÔNG GIAN RIÊNG BIỆT</div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; font-weight: 700; color: var(--blue-medium);">
+                        <div style="background: #f0fdf4; padding: 12px 20px; border-radius: 8px; border: 1px solid #bbf7d0;">⛰ Đất Liền</div>
+                        <div style="background: #f0f9ff; padding: 12px 20px; border-radius: 8px; border: 1px solid #bae6fd;">🌊 Biển Khơi</div>
+                        <div style="background: #fef2f2; padding: 12px 20px; border-radius: 8px; border: 1px solid #fecaca;">☁ Vùng Trời</div>
+                        <div style="background: #fefaf0; padding: 12px 20px; border-radius: 8px; border: 1px solid #fed7aa;">💎 Lòng Đất</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- II. Quy trình phân định biên giới trên bộ -->
-    <section id="tren-bo">
-        <h2>II. Quy Trình Biên Giới Trên Bộ</h2>
+    <section id="vùng-dat-lien">
+        <h2>II. Quy Trình Xác Định Biên Giới Trên Bộ</h2>
         <div class="container">
             <div class="content-box">
-                <p>Quy trình xác định biên giới trên bộ thực tế gồm 3 bước nghiêm ngặt:</p>
+                <p>Biên giới đất liền, đảo, sông hồ được thiết lập nghiêm ngặt qua 3 bước tiêu chuẩn:</p>
                 <ul class="steps">
-                    <li><strong>Bước 1: Hoạch định</strong> - Ký điều ước, vẽ "đường biên giới trên giấy".</li>
-                    <li><strong>Bước 2: Phân giới</strong> - Ra thực địa khảo sát, xác định vị trí thực tế.</li>
-                    <li><strong>Bước 3: Cắm mốc</strong> - Đặt cột mốc cố định và lập hồ sơ pháp lý lâu dài.</li>
+                    <li><strong>Bước 1: Hoạch định biên giới</strong> — Thương thảo, thống nhất và vẽ đường phân định pháp lý giả lập trên hệ thống bản đồ giấy.</li>
+                    <li><strong>Bước 2: Phân giới thực địa</strong> — Đoàn chuyên viên trực tiếp khảo sát địa hình thực tế, đo đạc dòng chảy, ngọn núi để định hình tuyến biên giới ngoài đời thực.</li>
+                    <li><strong>Bước 3: Cắm mốc giới</strong> — Tiền hành xây dựng các cột mốc bê tông/đá cố định và lập văn bản hồ sơ số hóa để quản lý quốc gia lâu dài.</li>
                 </ul>
-                <blockquote style="margin-top:15px; border-left: 3px solid var(--cyan); padding-left:10px; color: var(--text-gray);">
-                    Ví dụ dễ nhớ: Việt Nam - Lào tiến hành hoạch định trên bản đồ trước, sau đó đoàn kỹ thuật ra thực địa đo đạc và tiến hành dựng cột mốc.
-                </blockquote>
+                <div class="example-box">
+                    <strong>Thực tế cốt lõi:</strong> Việt Nam và Lào cùng khảo sát các rặng núi Trường Sơn, sau đó đồng loạt xây dựng hệ thống cột mốc đá hoa cương tại các tọa độ đỉnh đèo.
+                </div>
             </div>
             <div class="visual-display">
-                <!-- Đồ họa cắm mốc nhảy lên -->
-                <div class="land-line">
-                    <div class="flag-pole">
-                        <div style="width:30px; height:20px; background:red; position:absolute; left:4px; top:0; color:white; font-size:10px; font-weight:bold; text-align:center;">MỐC</div>
-                    </div>
+                <div class="scenery-land">
+                    <div class="mountain-back"></div>
+                    <div class="mountain-front"></div>
+                    <div class="river-flow"></div>
+                    <div class="dynamic-marker"></div>
+
+                    <div class="annotation" style="top: 25px; left: 25px;">Địa hình thực tế (Đèo / Núi cao)</div>
+                    <div class="annotation" style="top: 150px; right: 30px;">Dòng chảy sông ngòi tự nhiên</div>
+                    <div class="annotation" style="bottom: 140px; left: 35%;">Cột mốc được cắm tự động</div>
                 </div>
-                <div style="position:absolute; bottom:20px; color:var(--text-gray); font-size:0.9rem;">Mô phỏng: Cắm mốc thực địa (Dựng mốc từ giấy ra thực tế)</div>
             </div>
         </div>
     </section>
 
-    <!-- III. Quy trình phân định biên giới trên biển -->
-    <section id="tren-bien">
+    <section id="vung-bien-dao">
         <h2>III. Quy Trình Phân Định Biên Giới Trên Biển</h2>
         <div class="container">
             <div class="content-box">
-                <p>Áp dụng theo <strong>Công ước Luật Biển UNCLOS 1982</strong>, chia làm hai kịch bản:</p>
+                <p>Khung phân định chủ quyền biển tuân thủ Công ước quốc tế <strong>UNCLOS 1982</strong>:</p>
                 <ul class="steps">
-                    <li><strong>Trường hợp không chồng lấn:</strong> Quốc gia tự chủ động công bố chiều rộng Lãnh hải không quá 12 hải lý tính từ Đường cơ sở.</li>
-                    <li><strong>Trường hợp biển chồng lấn:</strong> (Bờ biển đối diện/liền kề): Bắt buộc đàm phán, áp dụng nguyên tắc đường trung tuyến/cách đều để đạt kết quả công bằng.</li>
+                    <li><strong>Kịch bản không chồng lấn:</strong> Quốc gia sở hữu bờ biển hướng thẳng ra đại dương tự do vạch đường cơ sở và công bố vùng Lãnh hải rộng tối đa 12 hải lý.</li>
+                    <li><strong>Kịch bản có vùng biển chồng lấn:</strong> Xảy ra khi khoảng cách bờ biển đối diện/liền kề giữa 2 nước hẹp (nhỏ hơn 400 hải lý). Hai bên bắt buộc phải ngồi vào bàn đàm phán ngoại giao, lấy <strong>Đường trung tuyến/Cách đều</strong> làm cơ sở tinh chỉnh để đạt giải pháp công bằng.</li>
                 </ul>
             </div>
             <div class="visual-display">
-                <!-- Đồ họa vùng chồng lấn -->
-                <div class="sea-overlap">
-                    <div class="country-a"><span style="margin:20px; display:inline-block;">Quốc gia A</span></div>
-                    <div class="country-b"><span style="margin:20px; display:inline-block; float:right;">Quốc gia B</span></div>
-                    <div class="median-line"></div>
-                </div>
-                <div style="position:absolute; bottom:10px; background:rgba(0,0,0,0.8); padding:5px 10px; font-size:0.8rem; color:yellow;">
-                    Vùng Giao Thoa Chồng Lấn & Đường Trung Tuyến Phân Định
+                <div class="scenery-sea">
+                    <div class="eez-overlay-a"></div>
+                    <div class="eez-overlay-b"></div>
+                    <div class="center-law-line"></div>
+                    <div class="navy-ship"></div>
+
+                    <div class="annotation" style="top: 30px; left: 20px;">Vùng biển thuộc Quốc gia A</div>
+                    <div class="annotation" style="top: 30px; right: 20px;">Vùng biển thuộc Quốc gia B</div>
+                    <div class="annotation" style="bottom: 160px; left: 28%;">Tàu tuần tra kiểm soát biển</div>
+                    <div class="annotation" style="bottom: 30px; left: 40%; border-color: var(--accent-red);">Đường trung tuyến phân định</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- IV & V. Vùng trời và Lòng Đất -->
-    <section id="khong-dat">
-        <h2>IV & V. Biên Giới Vùng Trời & Lòng Đất</h2>
+    <section id="vung-troi-long-dat">
+        <h2>IV & V. Cơ Chế Xác Định Vùng Trời & Lòng Đất</h2>
         <div class="container">
             <div class="content-box">
-                <p>Hai loại biên giới này <strong>không được phân định độc lập</strong> mà phụ thuộc hoàn toàn vào biên giới bề mặt (đất liền và biển).</p>
+                <p>Không gian Không phận và Địa chất <strong>không được đo đạc phân định độc lập</strong>, mà phụ thuộc hoàn toàn vào đường ranh giới trên bề mặt đất và biển.</p>
                 <ul class="steps">
-                    <li><strong>Biên giới vùng trời:</strong> Mặt phẳng thẳng đứng đi LÊN không trung (Theo Công ước Chicago 1944).</li>
-                    <li><strong>Biên giới lòng đất:</strong> Mặt phẳng thẳng đứng kéo SÂU xuống tâm Trái Đất.</li>
+                    <li><strong>Biên giới vùng trời (Công ước Chicago 1944):</strong> Là một bức tường mặt phẳng vô hình, dựng thẳng đứng từ mặt đất/mặt biển lên tận rìa bầu khí quyển.</li>
+                    <li><strong>Biên giới lòng đất:</strong> Tương tự, là mặt phẳng vô hình kéo thẳng đứng xuyên qua các tầng địa chất hướng sâu về phía tâm Trái Đất.</li>
                 </ul>
-                <p style="margin-top:15px; color: var(--text-gray);">Bất kỳ hành vi bay vào vùng trời hay khai thác mỏ xuyên qua mặt phẳng này khi chưa được phép đều vi phạm chủ quyền.</p>
             </div>
             <div class="visual-display">
-                <!-- Đồ họa Mặt phẳng thẳng đứng -->
-                <div class="vertical-axis">
-                    <div class="scanner"></div>
-                    <div class="vertical-laser"></div>
-                    <div class="ground-base"></div>
-                    <div style="position:absolute; top:15%; left:55%; font-size:0.8rem; color:#fff;">↑ VÙNG TRỜI (Đi Lên)</div>
-                    <div style="position:absolute; bottom:10%; left:55%; font-size:0.8rem; color:#fff;">↓ LÒNG ĐẤT (Kéo Xuống)</div>
+                <div class="scenery-sky-space">
+                    <div class="sky-visual">
+                        <div class="jet-plane"></div>
+                    </div>
+                    <div class="ground-divider"></div>
+                    <div class="sub-earth-visual"></div>
+                    
+                    <div class="vertical-laser-plane"></div>
+                    <div class="radar-glow"></div>
+
+                    <div class="annotation" style="top: 25px; left: 15%;">Không phận (Chủ quyền bầu trời)</div>
+                    <div class="annotation" style="top: 100px; right: 20%; border-color: var(--accent-red);">Mặt phẳng dựng đứng hướng thượng</div>
+                    <div class="annotation" style="bottom: 30px; left: 15%;">Mỏ tài nguyên / Địa chất lòng đất</div>
+                    <div class="annotation" style="bottom: 90px; right: 20%; border-color: var(--accent-red);">Mặt phẳng kéo thẳng xuống tâm</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Bảng tổng hợp -->
     <section>
-        <h2>VI. Bảng Tóm Tắt Hệ Thống Kiến Thức</h2>
+        <h2>VI. Khung Ma Trận Tổng Hợp Kiến Thức</h2>
         <div class="table-wrapper">
             <table>
                 <thead>
                     <tr>
-                        <th>Loại biên giới</th>
-                        <th>Cách xác định</th>
-                        <th>Cần thỏa thuận?</th>
-                        <th>Ví dụ thực tế</th>
+                        <th>Môi trường không gian</th>
+                        <th>Bản chất quy trình phân định</th>
+                        <th>Văn bản pháp lý nền tảng</th>
+                        <th>Đặc trưng nhận diện trực quan</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td><strong>Trên bộ</strong></td>
-                        <td>Hoạch định → Phân giới → Cắm mốc</td>
-                        <td>Có, giữa các nước liền kề</td>
-                        <td>Việt Nam – Lào thực hiện cắm mốc thực địa</td>
+                        <td><strong>Biên giới trên bộ</strong></td>
+                        <td>Vẽ bản đồ → Khảo sát địa hình thực tế → Dựng cột mốc giới</td>
+                        <td>Hiệp định song phương</td>
+                        <td>Các cột mốc vật lý hiện hữu ngoài thực địa</td>
                     </tr>
                     <tr>
-                        <td><strong>Trên biển</strong></td>
-                        <td>Tính từ đường cơ sở; xử lý chồng lấn</td>
-                        <td>Có nếu có vùng chồng lấn</td>
-                        <td>Đàm phán đường trung tuyến vùng biển đối diện</td>
+                        <td><strong>Biên giới trên biển</strong></td>
+                        <td>Thiết lập đường cơ sở pháp lý, tính hải lý hoặc đàm phán chồng lấn</td>
+                        <td>UNCLOS 1982</td>
+                        <td>Áp dụng nguyên tắc đường cách đều/trung tuyến</td>
                     </tr>
                     <tr>
-                        <td><strong>Vùng trời</strong></td>
-                        <td>Dựng thẳng đứng lên từ nền đất/biển</td>
-                        <td>Không phân định riêng</td>
-                        <td>Máy bay chưa cấp phép bay qua mốc ranh giới là xâm phạm</td>
+                        <td><strong>Biên giới vùng trời</strong></td>
+                        <td>Hình chiếu hình học thẳng đứng từ ranh giới đất/biển lên không trung</td>
+                        <td>Công ước Chicago 1944</td>
+                        <td>Bức tường vô hình bao trọn không phận quốc gia</td>
                     </tr>
                     <tr>
-                        <td><strong>Lòng đất</strong></td>
-                        <td>Kéo thẳng đứng xuống dưới</td>
-                        <td>Không phân định riêng</td>
-                        <td>Mỏ khoáng sản dưới lòng đất thuộc toàn quyền quốc gia đó</td>
+                        <td><strong>Biên giới lòng đất</strong></td>
+                        <td>Hình chiếu hình học thẳng đứng từ ranh giới đất/biển sâu xuống lòng đất</td>
+                        <td>Luật Biên giới Quốc gia</td>
+                        <td>Xác định quyền khai thác tài nguyên dầu khí, khoáng sản</td>
                     </tr>
                 </tbody>
             </table>
@@ -458,8 +598,13 @@ Portfolio: Phân Định Biên Giới Vùng Biên
     </section>
 
     <footer>
-        <p>© 2026 Trang web học tập & Portfolio Luật Quốc Tế. Thiết kế trực quan hóa tài liệu học tập.</p>
+        <p>© 2026 Nghiên Cứu Số Hóa Luật Quốc Tế — Thiết kế sáng tạo đồ họa trực quan</p>
     </footer>
 
 </body>
-</html>
+</html>]" > index.html
+
+# Push to GitHub
+git add index.html
+git commit -m "Initial commit: Create portfolio website on national boundary demarcation"
+git push origin main
